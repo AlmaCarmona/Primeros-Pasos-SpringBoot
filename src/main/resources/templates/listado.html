@@ -24,12 +24,13 @@
 
         <div class="container mt-4 vj-destacados">
             <div class="row">
-                <div class="col-md-3 mb-3">
+                <div th:each="juego : ${destacados}" class="col-md-3 mb-3"> <!-- Utilizo thymeleaf para que se repita la columna  
+                                            Se genera un card por cada uno de los videojuegos con el nombre destacados-->
                     <div class="card">
-                        <img src="https://cdn.mobygames.com/covers/448945-borderlands-3-playstation-4-front-cover.jpg" class="card-img-top" alt="...">
+                        <img th:src="${juego.imagenUrl}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Borderlands 3</h5>
-                            <p class="card-text">Es un videojuego de disparos en primera persona con elementos de rol, desarrollado por Gearbox Software. Ambientado en un universo caótico y lleno de humor negro, el juego sigue a un grupo de nuevos buscadores de la Cámara que deben enfrentarse a los Gemelos Calypso, líderes de un culto fanático que busca apoderarse del poder de las Cámaras repartidas por distintos planetas. Con acción explosiva, un vasto arsenal de armas y un estilo artístico distintivo, el juego combina tiroteos frenéticos con narrativa irreverente en una aventura cooperativa o en solitario.</p>
+                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
+                            <p th:text="${juego.descripcion}" class="card-text"></p>
 
                         </div>
                         <div class="card-footer text-body-secondary">
@@ -38,105 +39,6 @@
                         </div>
                     </div>
                 </div> 
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://pictures.abebooks.com/isbn/9781616559274-es.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Uncharted</h5>
-                            <p class="card-text">En esta entrega, Nathan Drake, ya retirado de la vida de cazatesoros, se ve obligado a regresar a la aventura cuando su hermano Sam, a quien creía muerto, aparece pidiéndole ayuda. Juntos, emprenden la búsqueda del tesoro perdido del pirata Henry Avery, lo que los lleva por todo el mundo, enfrentándose a peligrosos enemigos y desenterrando secretos del pasado. La historia explora temas como la familia, la redención y los límites del sacrificio.</p>
-
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            2 days ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_1080p_2x/co2afs.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Until Dawn. Rush of Blood</h5>
-                            <p class="card-text">El juego es un spin-off directo de Until Dawn. El jugador juega en un carrito de montaña rusa mientras atraviesa un parque de diversiones de carnaval con temática de terror que se vuelve más intenso a medida que el jugador avanza en el juego. El juego presenta siete montañas rusas diferentes que presentan algunas de las mismas ubicaciones y personajes de sus hermanos, aunque con diferentes temas, y se cargan rápidamente de forma predeterminada con pistolas, aunque hay otras armas disponibles.</p>
-
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            2 days ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://m.media-amazon.com/images/I/71DLcVdoPTL._UF1000,1000_QL80_.jpg" class="card-img-top" alt="Portada The Last of Us Part II">
-                        <div class="card-body">
-                            <h5 class="card-title">The Last of Us Part II</h5>
-                            <p class="card-text">Secuela del aclamado The Last of Us. Acompaña a Ellie en un viaje de venganza en un mundo postapocalíptico, donde la moralidad se difumina y cada decisión tiene un coste emocional. Destaca por su narrativa madura y su apartado gráfico impresionante.</p>
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            1 week ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://gaming-cdn.com/images/products/17355/orig/god-of-war-pc-juego-steam-latin-america-cover.jpg?v=1723201044" class="card-img-top" alt="Portada God of War">
-                        <div class="card-body">
-                            <h5 class="card-title">God of War</h5>
-                            <p class="card-text">Kratos regresa en una nueva mitología: la nórdica. Acompañado de su hijo Atreus, enfrenta dioses y criaturas legendarias en una aventura que combina acción brutal, exploración y una emotiva historia sobre la paternidad.</p>
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            5 days ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7" class="card-img-top" alt="Portada Cyberpunk 2077">
-                        <div class="card-body">
-                            <h5 class="card-title">Cyberpunk 2077</h5>
-                            <p class="card-text">Un RPG de mundo abierto ambientado en Night City, una metrópolis obsesionada con el poder, el glamour y las modificaciones cibernéticas. Juega como V y define tu estilo en un mundo futurista lleno de decisiones y consecuencias.</p>
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            3 days ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://assets.nintendo.eu/image/upload/f_auto,c_limit,w_992,q_auto:low/MNS/NOE/70010000000963/SQ_NSwitch_Minecraft" class="card-img-top" alt="Portada Minecraft">
-                        <div class="card-body">
-                            <h5 class="card-title">Minecraft</h5>
-                            <p class="card-text">El sandbox más famoso del mundo. Construye, explora y sobrevive en mundos generados proceduralmente con infinitas posibilidades. Ya sea en solitario o multijugador, la creatividad es el único límite.</p>
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            2 months ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png" class="card-img-top" alt="Portada Red Dead Redemption 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Red Dead Redemption 2</h5>
-                            <p class="card-text">Vive la historia de Arthur Morgan y la banda de Van der Linde en el salvaje oeste. Con un realismo sin precedentes, explora un mundo abierto lleno de aventuras, dilemas morales y un guion cinematográfico.</p>
-                        </div>
-                        <div class="card-footer text-body-secondary">
-                            1 month ago
-                            <a href="#" class="btn btn-primary float-end">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>    
         </div>
 
