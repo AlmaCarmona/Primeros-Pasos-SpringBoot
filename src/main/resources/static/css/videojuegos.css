@@ -1,0 +1,14 @@
+/* 
+    Created on : 18 ago 2025, 14:26:10
+    Author     : almac
+*/
+
+.vj-destacados .card{ 
+    height: 100%; /*ocupa el 100% de todo su contenedor*/
+}
+.vj-destacados .card img{
+    height: 350px;
+    object-fit: cover; /* La imagen debe cubrir por completo lo que especifico*/    
+}
+
+
