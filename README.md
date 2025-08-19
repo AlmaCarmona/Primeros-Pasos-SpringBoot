@@ -70,5 +70,5 @@ ________________________________________________________________________________
 
 ## ✍️ **Autora**
 
-Alma Carmona Cañada
+Alma Carmona Cañada,
 Desarrolladora de Aplicaciones Multiplataforma (DAM).
