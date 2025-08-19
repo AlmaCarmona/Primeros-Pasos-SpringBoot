@@ -60,7 +60,7 @@ public class VideojuegoService {
         Videojuego juego6 = new Videojuego();
         juego6.setNombre("God of War");
         juego6.setDescripcion("Kratos y su hijo Atreus exploran la mitología nórdica en una aventura épica llena de acción y emociones.");
-        juego6.setImagenUrl("https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7");
+        juego6.setImagenUrl("https://gaming-cdn.com/images/products/17355/orig/god-of-war-pc-juego-steam-latin-america-cover.jpg?v=1723201044");
 
         Videojuego juego7 = new Videojuego();
         juego7.setNombre("Minecraft");
@@ -68,9 +68,9 @@ public class VideojuegoService {
         juego7.setImagenUrl("https://assets.nintendo.eu/image/upload/f_auto,c_limit,w_992,q_auto:low/MNS/NOE/70010000000963/SQ_NSwitch_Minecraft");
 
         Videojuego juego8 = new Videojuego();
-        juego8.setNombre("Red Dead Redemption 2");
-        juego8.setDescripcion("Sigue la historia de Arthur Morgan y la banda de Van der Linde en el salvaje oeste con un realismo impresionante.");
-        juego8.setImagenUrl("https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png");
+        juego8.setNombre("Cyberpunk");
+        juego8.setDescripcion("RPG de mundo abierto en Night City con narrativa ramificada y ciberimplantes.");
+        juego8.setImagenUrl("https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7");
 
         vjDestacados.add(juego1);
         vjDestacados.add(juego2);
