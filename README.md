@@ -19,7 +19,7 @@ ________________________________________________________________________________
 
 - **Java 24**
 - **Spring Boot** (versión inicial)
-- **Maven** para la gestión de dependencias
+- **Maven 3.x** para la gestión de dependencias
 - **Thymeleaf** para las vistas
 - **NetBeans 26** como IDE (aunque también es compatible con IntelliJ o Eclipse)
 
@@ -33,7 +33,7 @@ ________________________________________________________________________________
    ```
 2. Accede a la carpeta del proyecto:
    ```bash
-    cd nombre-del-repo
+    cd Primeros-Pasos-SpringBoot
     ```
 3. Ejecuta el proyecto con Maven o desde el IDE:
      ```bash
