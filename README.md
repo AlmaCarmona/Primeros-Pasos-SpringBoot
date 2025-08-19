@@ -29,20 +29,20 @@ ________________________________________________________________________________
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/usuario/nombre-del-repo.git
+   git clone https://github.com/AlmaCarmona/Primeros-Pasos-SpringBoot.git
    ```
 2. Accede a la carpeta del proyecto:
-  ```bash
+   ```bash
     cd nombre-del-repo
-  ```
+    ```
 3. Ejecuta el proyecto con Maven o desde el IDE:
-  ```bash
+     ```bash
     mvn spring-boot:run
-  ```
+     ```
 4. Abre en tu navegador:
-  ```bash
+     ```bash
     http://localhost:8080/videojuegos
-  ```
+     ```
 
 _____________________________________________________________________________________________________________
 
