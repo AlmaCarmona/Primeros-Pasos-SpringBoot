@@ -2,7 +2,7 @@
 
 Este repositorio contiene mis primeras prácticas y ejemplos desarrollados con **Spring Boot**, un framework de Java que facilita la creación de aplicaciones web y microservicios de manera rápida y sencilla.  
 
-El objetivo de este proyecto es **aprender los conceptos básicos de Spring Boot** y familiarizarme con su estructura, configuración y principales componentes.
+Mi objetivo con este proyecto es **aprender los conceptos básicos de Spring Boot** y familiarizarme con su estructura, configuración y principales componentes.
 
 ---
 
@@ -17,7 +17,7 @@ ________________________________________________________________________________
 
 ## ⚙️ Tecnologías utilizadas
 
-- **Java 24** ☕
+- **Java 24**
 - **Spring Boot** (versión inicial)
 - **Maven** para la gestión de dependencias
 - **Thymeleaf** para las vistas
@@ -46,7 +46,7 @@ ________________________________________________________________________________
 
 _____________________________________________________________________________________________________________
 
-🎯 **Objetivo de aprendizaje**
+## 🎯 **Objetivo de aprendizaje**
 
 · Comprender la estructura básica de un proyecto Spring Boot.
 
@@ -58,7 +58,7 @@ ________________________________________________________________________________
 
 _____________________________________________________________________________________________________________
 
-📖 **Recursos útiles**
+## 📖 **Recursos útiles**
 
 · Documentación oficial de Spring Boot
 
@@ -68,7 +68,7 @@ ________________________________________________________________________________
 
 _____________________________________________________________________________________________________________
 
-✍️ **Autora**
+## ✍️ **Autora**
 
 Alma Carmona Cañada
 Desarrolladora de Aplicaciones Multiplataforma (DAM).
