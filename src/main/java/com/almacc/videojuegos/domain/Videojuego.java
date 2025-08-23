@@ -1,9 +1,12 @@
 package com.almacc.videojuegos.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+/* Spring Boot 3 ya no reconoce javax.* 
+ * Not a managed type: class ... etc.
+*/
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 /**
  * Clase que representa un Videojuego dentro del sistema.
@@ -54,6 +57,24 @@ public class Videojuego {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagenUrl = imagenUrl;
+    }
+    
+    /**
+     * Getter del Id del videojuego.
+     * 
+     * @return Id del videojuego.
+     */
+    public Integer getId_vj() {
+        return id_vj;
+    }
+
+    /**
+     * Setter del ID del videojuego.
+     * 
+     * @param id_vj nuevo Id del videojuego.
+     */
+    public void setId_vj(Integer id_vj) {
+        this.id_vj = id_vj;
     }
     
     /**
@@ -109,4 +130,6 @@ public class Videojuego {
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
     }
+
+    
 }

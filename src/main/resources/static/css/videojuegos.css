@@ -1,7 +1,8 @@
 /* 
-    Created on : 18 ago 2025, 14:26:10
-    Author     : almac
-*/
+ * @author almac
+ * @version 1.5
+ * @since 2025-08-18
+ */
 
 .vj-destacados .card{ 
     height: 100%; /*ocupa el 100% de todo su contenedor*/
@@ -10,5 +11,17 @@
     height: 350px;
     object-fit: cover; /* La imagen debe cubrir por completo lo que especifico*/    
 }
+
+.navbar-brand {
+    font-size: 1.5rem;   /* Texto más grande */
+    font-weight: bold;   /* Que resalte un poco más */
+}
+
+.navbar-brand img {
+    width: 50px;   /* un poco más grande que antes */
+    height: auto;  /* para que no se deforme */
+    margin-right: 8px; /* deja espacio entre logo y texto */
+}
+
 
 

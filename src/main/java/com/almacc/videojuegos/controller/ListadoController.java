@@ -5,7 +5,9 @@ import com.almacc.videojuegos.service.VideojuegoService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Controlador que gestiona las peticiones a la aplicación relacionadas
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * siguiendo el patrón MVC de Spring.</p>
  * 
  * @author almac
- * @version 1.0
+ * @version 1.5
  * @since 2025-07-22
  */
 @Controller
@@ -50,8 +52,30 @@ public class ListadoController {
      */
     @RequestMapping("/videojuegos")
     public String listarVideojuegos(Model model){
-        List<Videojuego> vjDestacados = videojuegoService.buscarDestacados();
+        List<Videojuego> vjDestacados = videojuegoService.buscarTodosVideojuegos();
         model.addAttribute("destacados", vjDestacados);
         return "listado";
     }
+    
+    /**
+     * Endpoint de búsqueda: recoge el parámetro "texto" enviado desde el
+     * formulario. Añade los resultados al modelo bajo la clave "destacados" y
+     * devuelve la plantilla "listado".
+     *
+     * @param texto Texto de búsqueda escrito por el usuario en el formulario (puede
+     * ser nulo/vacío).
+     * @param model Modelo para pasar datos a la vista.
+     * @return Nombre de la plantilla a renderizar (listado.html).
+     */
+    @GetMapping("/buscar")
+    public String buscar(@RequestParam("texto") String texto, Model model) {
+        // Llamada al service
+        List<Videojuego> resultados = videojuegoService.buscarPorNombre(texto);
+
+        model.addAttribute("destacados", resultados);
+        model.addAttribute("busqueda", texto);
+
+        return "listado";
+    }
+
 }
