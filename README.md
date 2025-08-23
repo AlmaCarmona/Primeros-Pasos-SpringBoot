@@ -9,8 +9,9 @@ Mi objetivo con este proyecto es **aprender los conceptos básicos de Spring Boo
 ## 📌 Contenido
 
 - **Controladores (Controller):** Manejo de peticiones HTTP y respuestas.
-- **Servicios (Service):** Lógica de negocio separada de los controladores.
 - **Modelos (Domain/Entity):** Representación de objetos de negocio.
+- **Repositorio (Repository):** Accede a la base de datos mediante Spring Data JPA.
+- **Servicios (Service):** Lógica de negocio separada de los controladores.
 - **Templates (Thymeleaf/HTML):** Vistas para mostrar información en el navegador.
 
 _____________________________________________________________________________________________________________
