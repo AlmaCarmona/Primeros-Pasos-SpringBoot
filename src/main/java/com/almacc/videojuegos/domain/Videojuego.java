@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 /**
  * Clase que representa un Videojuego dentro del sistema.
@@ -33,6 +35,14 @@ public class Videojuego {
     private String descripcion;
     private String imagenUrl; /*El atributo utiliza camelCase, lo que JPA interpreta
                                 como una columna con nombre "imagen_url" en la base de datos.*/
+    /**
+     * Relación muchos-a-uno con {@link Distribuidor}. La columna
+     * [id_distribuidor en videojuego] referencia la [(PK)id_db en distribuidor].
+     */
+    @ManyToOne
+    @JoinColumn(name = "id_distribuidor", referencedColumnName = "id_db", nullable = true)
+    private Distribuidor distribuidor;
+
     
     /**
      * Constructor vacío.
@@ -129,6 +139,24 @@ public class Videojuego {
      */
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+
+    /**
+     * Getter del Distribuidor del videojuego.
+     * 
+     * @return Distribuidor del videojuego.
+     */
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    /**
+     * Setter del Distribuidor del videojuego.
+     * 
+     * @param Distribuidor del videojuego.
+     */
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
     }
 
     
