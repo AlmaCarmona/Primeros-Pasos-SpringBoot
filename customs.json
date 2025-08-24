@@ -2,7 +2,13 @@
     "elements": {},
     "attributes": {
         "th:text": {},
+        "th:thref": {
+            "context": "a"
+        },
         "th:src": {},
-        "th:each": {}
+        "th:each": {},
+        "th:href": {
+            "context": "a"
+        }
     }
 }
