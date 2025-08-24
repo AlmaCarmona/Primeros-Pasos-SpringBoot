@@ -52,7 +52,16 @@
                         <img th:src="${juego.imagenUrl}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
-                            <p><span class="badge rounded-pill bg-warning text-dark" th:text="${juego.distribuidor.nombre}"></span></p> 
+                            <p>
+                                <span class="badge rounded-pill bg-warning text-dark mi-popover" 
+                                      data-bs-toggle="popover" 
+                                      title="Distribuidor"
+                                      th:attr="data-bs-content=${juego.distribuidor.sitioWeb}">
+                                <span th:text="${juego.distribuidor.nombre}"></span>
+                                </span>
+                            </p>
+                            <div  id="zonaPopover"></div>  
+                            
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-body-secondary">
@@ -66,5 +75,18 @@
 
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+        <!-- Script para el Popover del distribbuidor -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              document.querySelectorAll('.mi-popover').forEach(function (element) {
+                new bootstrap.Popover(element, {
+                    container: '#zonaPopover',
+                    trigger: 'hover',
+                    placement: 'right'  // dónde aparece: top, bottom, left, right
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

@@ -1,5 +1,7 @@
 {
-    "elements": {},
+    "elements": {
+        "sript": {}
+    },
     "attributes": {
         "th:text": {},
         "th:thref": {
@@ -9,6 +11,9 @@
         "th:each": {},
         "th:href": {
             "context": "a"
+        },
+        "th:attr": {
+            "context": "span"
         }
     }
 }
