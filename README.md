@@ -37,14 +37,16 @@ ________________________________________________________________________________
    ```bash
     cd Primeros-Pasos-SpringBoot
     ```
-3. Ejecuta el proyecto con Maven o desde el IDE:
-   ·Desde consola (requiere tener Maven instalado):
-         ```bash
-          mvn spring-boot:run
-         ```
-   ·Desde el IDE (NetBeans, IntelliJ, Eclipse):
-      ->Abrir la clase VideojuegosApplication.
-      ->Ejecutar con el botón ▶️ (Run Project).   
+3. Ejecuta el proyecto (elige una opción):
+
+   * **Consola** (requiere instalar Maven):
+     ```bash
+     mvn spring-boot:run
+     ```
+   * **IDE** (NetBeans / IntelliJ / Eclipse):
+     1. Abre la clase `VideojuegosApplication`.
+     2. Ejecuta con el botón ▶️ *Run Project*.
+   
 4. Abre en tu navegador:
      ```bash
     http://localhost:8080/videojuegos
