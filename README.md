@@ -68,8 +68,6 @@ ________________________________________________________________________________
 
 ## 📖 **Recursos útiles**
 
-## 📖 Recursos útiles
-
 · [Documentación oficial de Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/)  
 
 · [Guía de inicio rápido con Spring Boot](https://spring.io/quickstart)  
