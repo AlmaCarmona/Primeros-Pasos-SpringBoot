@@ -19,9 +19,10 @@ ________________________________________________________________________________
 ## ⚙️ Tecnologías utilizadas
 
 - **Java 24**
-- **Spring Boot** (versión inicial)
+- **Spring Boot 3.5.3** (versión inicial)
 - **Maven 3.x** para la gestión de dependencias
 - **Thymeleaf** para las vistas
+- **Bootstrap 5.1.3** (para el diseño y estilos de la interfaz) 
 - **NetBeans 26** como IDE (aunque también es compatible con IntelliJ o Eclipse)
 
 _____________________________________________________________________________________________________________
