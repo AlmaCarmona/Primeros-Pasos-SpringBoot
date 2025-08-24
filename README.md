@@ -68,11 +68,18 @@ ________________________________________________________________________________
 
 ## 📖 **Recursos útiles**
 
-· Documentación oficial de Spring Boot
+## 📖 Recursos útiles
 
-· Guía de inicio rápido con Spring Boot
+· [Documentación oficial de Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/)  
 
-· Thymeleaf Documentation
+· [Guía de inicio rápido con Spring Boot](https://spring.io/quickstart)  
+
+· [Thymeleaf Documentation](https://www.thymeleaf.org/documentation.html)  
+
+· [Documentación oficial de Bootstrap](https://getbootstrap.com)  
+
+· [Spring Initializr (Generador de proyectos Spring Boot)](https://start.spring.io)  
+
 
 _____________________________________________________________________________________________________________
 
