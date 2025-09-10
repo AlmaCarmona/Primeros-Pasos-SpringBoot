@@ -32,28 +32,29 @@
                     <input type="hidden" name="opcion" id="opcionHidden" value="nombre">
                     <input type="hidden" name="orden" id="orden" value="ASC">
                 </form>    
-                
-                <div class="btn-group" role="group" aria-label="Opcion">
-                    <input type="radio" class="btn-check" name="opcion" id="campoNombre" value="nombre" th:checked="${opcion} == 'nombre'">
-                    <label class="btn btn-outline-primary" for="campoNombre">Nombre</label>
 
-                    <input type="radio" class="btn-check" name="opcion" id="campoDescripcion" value="descripcion" th:checked="${opcion} == 'descripcion'">
-                    <label class="btn btn-outline-primary" for="campoDescripcion">Descripción</label>
-                </div>
-                
-                <div class="vr d-none d-md-block" style="height: 28px;"></div>
-                
-                
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span th:text="${orden} == 'DESC' ? 'Nombre (Z-A)' : 'Nombre (A-Z)'">Orden...</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end"> <!-- Se puede hacer más fácil con select (pero pierdo el estilo de Bootstrap) -->
-                        <li><button class="dropdown-item" type="button" data-value="ASC">(A-Z)</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="DESC">(Z-A)</button></li>
-                        <li><a class="dropdown-item disabled" aria-disabled="true">Lo implementaré más adelante</a></li>
-                    </ul>
-                </div>  
+                <div class="filter">
+                    <div class="btn-group" role="group" aria-label="Opcion">
+                        <span class="m-2">Filtrar por:</span>
+                        
+                        <input type="radio" class="btn-check" name="opcion" id="campoNombre" value="nombre" th:checked="${opcion} == 'nombre'">
+                        <label class="btn btn-outline-primary" for="campoNombre">Nombre</label>
+
+                        <input type="radio" class="btn-check" name="opcion" id="campoDescripcion" value="descripcion" th:checked="${opcion} == 'descripcion'">
+                        <label class="btn btn-outline-primary" for="campoDescripcion">Descripción</label>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span th:text="${orden} == 'DESC' ? 'Orden (Z-A)' : 'Orden (A-Z)'">Orden...</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end"> <!-- Se puede hacer más fácil con select (pero pierdo el estilo de Bootstrap) -->
+                            <li><button class="dropdown-item" type="button" data-value="ASC">(A-Z)</button></li>
+                            <li><button class="dropdown-item" type="button" data-value="DESC">(Z-A)</button></li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true">Lo implementaré más adelante</a></li>
+                        </ul>
+                    </div>  
+                </div> 
                     
                     
                 
@@ -62,7 +63,6 @@
                              
             </div>
         </nav>
-
 
         <div class="container mt-4 vj-destacados">
             <div class="row">
@@ -112,17 +112,26 @@
             });
             
             document.addEventListener('DOMContentLoaded', function () {
-                // 1. Selecciono todos los items del dropdown que tienen un atributo data-value
-                document.querySelectorAll('.dropdown-item[data-value]').forEach(function (item) {
-                  // 2. Cuando el usuario hace clic en uno de ellos
-                  item.addEventListener('click', function () {
-                    // 3. Cambia el valor del input hidden #orden
-                    const valor = item.getAttribute('data-value'); // "ASC" o "DESC"
-                    document.getElementById('orden').value = valor;
+                const form = document.querySelector('form[role="search"]');
+                const hiddenOrden  = document.getElementById('orden');        // name="orden"
+                const hiddenOpcion = document.getElementById('opcionHidden'); // name="opcion"
+                const rDescr       = document.getElementById('campoDescripcion');  // value="descripcion"
 
-                    // 4. Reenviar el formulario automáticamente
-                    const form = document.querySelector('form[role="search"]');
-                    if (form) form.submit();
+                // Mantener 'opcion' en el hidden del form
+                function syncOpcion() {
+                  hiddenOpcion.value = (rDescr && rDescr.checked) ? 'descripcion' : 'nombre';
+                }
+
+                // Cuando envías con el botón "Buscar"
+                form.addEventListener('submit', syncOpcion);
+
+                // Cuando selecciona en el dropdown, fija ASC/DESC, sincroniza 'opcion' y envía
+                document.querySelectorAll('.dropdown-item[data-value]').forEach(function (item) {
+                  item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    hiddenOrden.value = item.getAttribute('data-value'); // "ASC" o "DESC"
+                    syncOpcion();
+                    form.submit();
                   });
                 });
             });
