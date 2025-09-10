@@ -64,16 +64,29 @@ public class ListadoController {
      *
      * @param texto Texto de búsqueda escrito por el usuario en el formulario (puede
      * ser nulo/vacío).
+     * @param orden Orden que segirá a la hora de filtar los datos
+     * @param opcion Opción entre nombre o descrpcion para filtrar
      * @param model Modelo para pasar datos a la vista.
      * @return Nombre de la plantilla a renderizar (listado.html).
      */
     @GetMapping("/buscar")
-    public String buscar(@RequestParam("texto") String texto, Model model) {
+    public String buscar(
+            @RequestParam(name = "texto") String texto,
+            @RequestParam(name = "orden", defaultValue = "ASC") String orden,
+            @RequestParam(name = "opcion", defaultValue = "nombre") String opcion,
+            Model model) {
         // Llamada al service
-        List<Videojuego> resultados = videojuegoService.buscarPorNombre(texto);
+        List<Videojuego> resultados;
+        
+        if(texto==null || texto.isBlank())
+            resultados = videojuegoService.filtrarTodosPorOrden(orden, opcion);
+        else
+            resultados = videojuegoService.filtrarPorNombreOrdenado(texto, orden, opcion);
 
         model.addAttribute("destacados", resultados);
         model.addAttribute("busqueda", texto);
+        model.addAttribute("orden", orden);
+        model.addAttribute("opcion", opcion);
 
         return "listado";
     }

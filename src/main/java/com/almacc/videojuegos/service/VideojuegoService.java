@@ -51,7 +51,9 @@ public class VideojuegoService {
     public List<Videojuego> buscarTodosVideojuegos() {
 
         /*Mediante JPA mapea a los objetos videojuego*/
-        return videojuegoRepository.findAll(); /*select * from videojuego*/
+        //return videojuegoRepository.findAll(); /*select * from videojuego*/
+        
+        return videojuegoRepository.findAllVj();
     }
     
     /**
@@ -73,4 +75,51 @@ public class VideojuegoService {
         }
         return videojuegoRepository.findByNombreContainingIgnoreCase(nombre.trim());
     }
+    
+    /**
+     * Busca y devuelve una lista de los videojuegos filtrado por la opción (nombre | descripcion) 
+     * de la (A - Z) o (Z - A).
+     *
+     * 
+     * @return una lista de {@link Videojuego}
+     *
+     * @return Lista de videojuegos que coinciden.
+     */
+    public List<Videojuego> filtrarPorNombreOrdenado(String texto, String orden, String opcion){
+        
+        if (texto == null || texto.isBlank()) {
+            return Collections.emptyList(); //Muestro lista vacío
+        }
+        if (opcion == null || opcion.isBlank()) {
+            opcion = "nombre"; //Si no hay opción, por defecto filtro por nombre
+        }
+        
+        /*Si DESC es igual al orden pasado, entonces, ese será el orden; de lo contrario será ascendente.*/
+        Sort.Direction direccion = "DESC".equalsIgnoreCase(orden) ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Sort ord = Sort.by(direccion, opcion.trim()); /*Filtro con la direccion y el campo*/
+        
+        return videojuegoRepository.findByNombreContainingIgnoreCase(texto, ord);       
+    }
+    /**
+     * Busca y devuelve todos los videojuegos filtrado por la opción (nombre | descripcion) 
+     * de la (A - Z) o (Z - A).
+     *
+     * 
+     * @return una lista de {@link Videojuego}
+     *
+     * @return Lista de videojuegos que coinciden.
+     */
+    public List<Videojuego> filtrarTodosPorOrden(String orden, String opcion){
+        
+        if (opcion == null || opcion.isBlank()) {
+            opcion = "nombre"; //Si no hay opción, por defecto filtro por nombre
+        }
+        
+        /*Si DESC es igual al orden pasado, entonces, ese será el orden; de lo contrario será ascendente.*/
+        Sort.Direction direccion = "DESC".equalsIgnoreCase(orden) ? Sort.Direction.DESC : Sort.Direction.ASC;        
+        
+        return videojuegoRepository.findAll(Sort.by(direccion, opcion.trim()));  /*Filtro con la direccion y el campo*/
+    }
+    
+    
 }

@@ -25,22 +25,41 @@
 
                 <!-- Formulario a la derecha, centrado verticalmente -->
                 <form class="d-flex" role="search" method="get" action="/buscar">
-                    <input class="form-control me-2" type="search" name="texto" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control me-2" th:value="${busqueda}" type="search" name="texto" placeholder="Search" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit">Buscar videojuego</button>
-                </form>
+                    
+                    <!-- Inputs invisibles para usarlos en el form-->
+                    <input type="hidden" name="opcion" id="opcionHidden" value="nombre">
+                    <input type="hidden" name="orden" id="orden" value="ASC">
+                </form>    
+                
+                <div class="btn-group" role="group" aria-label="Opcion">
+                    <input type="radio" class="btn-check" name="opcion" id="campoNombre" value="nombre" th:checked="${opcion} == 'nombre'">
+                    <label class="btn btn-outline-primary" for="campoNombre">Nombre</label>
+
+                    <input type="radio" class="btn-check" name="opcion" id="campoDescripcion" value="descripcion" th:checked="${opcion} == 'descripcion'">
+                    <label class="btn btn-outline-primary" for="campoDescripcion">Descripción</label>
+                </div>
+                
+                <div class="vr d-none d-md-block" style="height: 28px;"></div>
+                
+                
                 <div class="btn-group">
-                    <button class="btn btn-secondary btn-sm" type="button">
-                        Orden...
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span th:text="${orden} == 'DESC' ? 'Nombre (Z-A)' : 'Nombre (A-Z)'">Orden...</span>
                     </button>
-                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Nombre (A-Z)</a></li>
-                        <li><a class="dropdown-item" href="#">Nombre (Z-A)</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end"> <!-- Se puede hacer más fácil con select (pero pierdo el estilo de Bootstrap) -->
+                        <li><button class="dropdown-item" type="button" data-value="ASC">(A-Z)</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="DESC">(Z-A)</button></li>
                         <li><a class="dropdown-item disabled" aria-disabled="true">Lo implementaré más adelante</a></li>
                     </ul>
-                </div>                
+                </div>  
+                    
+                    
+                
+                
+                             
+                             
             </div>
         </nav>
 
@@ -76,7 +95,11 @@
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
-        <!-- Script para el Popover del distribbuidor -->
+        <!-- Script para:
+            · El Popover del distribbuidor        
+            · Detecto cuando pulso el item del dropdown y escribo un valor en el input, debido a que en dropdown no genera ningún campo de enviado al servidor
+        
+        -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
               document.querySelectorAll('.mi-popover').forEach(function (element) {
@@ -87,6 +110,24 @@
                     });
                 });
             });
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                // 1. Selecciono todos los items del dropdown que tienen un atributo data-value
+                document.querySelectorAll('.dropdown-item[data-value]').forEach(function (item) {
+                  // 2. Cuando el usuario hace clic en uno de ellos
+                  item.addEventListener('click', function () {
+                    // 3. Cambia el valor del input hidden #orden
+                    const valor = item.getAttribute('data-value'); // "ASC" o "DESC"
+                    document.getElementById('orden').value = valor;
+
+                    // 4. Reenviar el formulario automáticamente
+                    const form = document.querySelector('form[role="search"]');
+                    if (form) form.submit();
+                  });
+                });
+            });
+            
         </script>
+        
     </body>
 </html>
