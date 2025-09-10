@@ -4,6 +4,9 @@
  * @since 2025-08-18
  */
 
+.filter{
+    color:white;
+}
 .vj-destacados .card{ 
     height: 100%; /*ocupa el 100% de todo su contenedor*/
 }
