@@ -7,6 +7,9 @@
         "th:thref": {
             "context": "a"
         },
+        "th:checked": {
+            "context": "input"
+        },
         "th:src": {},
         "th:each": {},
         "th:href": {
@@ -14,6 +17,9 @@
         },
         "th:attr": {
             "context": "span"
+        },
+        "th:value": {
+            "context": "input"
         }
     }
 }
