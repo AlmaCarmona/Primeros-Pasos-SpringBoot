@@ -153,7 +153,7 @@ public class Videojuego {
     /**
      * Setter del Distribuidor del videojuego.
      * 
-     * @param Distribuidor del videojuego.
+     * @param distribuidor del videojuego.
      */
     public void setDistribuidor(Distribuidor distribuidor) {
         this.distribuidor = distribuidor;
