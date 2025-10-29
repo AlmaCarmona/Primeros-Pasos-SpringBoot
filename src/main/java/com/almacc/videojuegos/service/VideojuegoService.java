@@ -19,8 +19,9 @@ import org.springframework.stereotype.Service;
  * Ctrl+Shift+I: autocompletar imports.</p>
  *
  * @author almac
- * @version 1.5
  * @since 2025-08-21
+ * @version 1.6
+ * @update 2025-10-29
  */
 @Service
 public class VideojuegoService {
@@ -121,5 +122,7 @@ public class VideojuegoService {
         return videojuegoRepository.findAll(Sort.by(direccion, opcion.trim()));  /*Filtro con la direccion y el campo*/
     }
     
-    
+    public List<Videojuego> buscarPorDistribuidor(int id_db){
+        return videojuegoRepository.buscarPorDistribuidor(id_db);
+    }
 }

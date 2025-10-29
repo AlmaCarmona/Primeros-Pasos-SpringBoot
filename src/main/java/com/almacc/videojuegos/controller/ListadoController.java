@@ -21,8 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * siguiendo el patrón MVC de Spring.</p>
  * 
  * @author almac
- * @version 1.5
- * @since 2025-07-22
+ * @since 2025-07-22 
+ * @version 1.6
+ * @update 2025-10-29
  */
 @Controller
 public class ListadoController {
@@ -69,7 +70,7 @@ public class ListadoController {
      * @param model Modelo para pasar datos a la vista.
      * @return Nombre de la plantilla a renderizar (listado.html).
      */
-    @GetMapping("/buscar")
+    @GetMapping("/videojuegos/buscar")
     public String buscar(
             @RequestParam(name = "texto") String texto,
             @RequestParam(name = "orden", defaultValue = "ASC") String orden,
@@ -91,4 +92,22 @@ public class ListadoController {
         return "listado";
     }
 
+    /**
+     * Atiende las peticiones GET a la ruta <b>/vjPorDistribuidor</b>. Recupera la
+     * lista de videojuegos por distribuidor desde el servicio y los añade al modelo
+     * para ser mostrados en la vista.
+     *
+     * @param distribuidorId Id de distribuidor
+     * @param model Modelo de Spring usado para pasar datos a la vista. (Es
+     * decir, actúa para guardar los datos, y los guarda hasta que Spring
+     * renderice el HTML)
+     * @return Nombre de la vista a renderizar: "listado.html".
+     */
+    @RequestMapping("/videojuegos/vjPorDistribuidor")
+    public String listarVideojuegosPorDistribuidor(int distribuidorId, Model model){
+        List<Videojuego> vj = videojuegoService.buscarPorDistribuidor(distribuidorId);
+        model.addAttribute("destacados", vj);
+        
+        return "listado";
+    }
 }

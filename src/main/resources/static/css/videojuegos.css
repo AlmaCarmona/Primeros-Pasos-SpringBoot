@@ -1,7 +1,8 @@
 /* 
  * @author almac
- * @version 1.5
  * @since 2025-08-18
+ * @version 1.6
+ * @update 2025-10-29
  */
 
 .filter{
@@ -24,6 +25,10 @@
     width: 50px;   /* un poco más grande que antes */
     height: auto;  /* para que no se deforme */
     margin-right: 8px; /* deja espacio entre logo y texto */
+}
+
+.mi-popover a{
+    text-decoration: none; /*Quito el subrayado que sale por defecto en el link*/
 }
 
 
